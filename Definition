@@ -1,0 +1,18 @@
+Launch Ec2 Instance
+- Launch an Ec2 instance
+- Create role for Ec2 instance for cloudwatch agent 
+- Connect to EC2 instance via SSH or instance connect
+
+How to install a webserver on EC2 instance
+- Make sure to be a root user
+- yum install httpd
+- echo "Hello World" > /var/www/html/index.html
+- systemctl start httpd (Use the systemd systemctl tool to start the Apache service)
+- systemctl enable httpd.service (Enable the service to start automatically on boot)
+
+How to configure Cloudwatch agent 
+- sudo yum install amazon-cloudwatch-agent
+- sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-config-wizard
+- sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c ssm:Amazoncloudwatch-linux -s
+
+## You can check the logs and metrics from AWS Cloudwatch 
